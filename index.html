@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/Control.OSMGeocoder.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/multi-style-layer.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/Control.OSMGeocoder.js"></script>
+        <script src="data/sanbenito_PB_0.js"></script>
+        <script src="data/concesion_tortuga_29_1.js"></script>
+        <script src="data/Bocamina_2.js"></script>
+        <script src="data/concesion_evita5_3.js"></script>
+        <script src="data/AREA2_4.js"></script>
+        <script src="data/AREA1_5.js"></script>
+        <script src="data/LABORESECIST_6.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[-7.77962985159,-77.5792620597],[-7.75867434728,-77.5424184405]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var bounds_group = new L.featureGroup([]);
+        var basemap0 =  L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
+    maxZoom: 20,
+    subdomains:['mt0','mt1','mt2','mt3']
+}).addTo(map);
+        function setBounds() {
+        }
+        function pop_sanbenito_PB_0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CODIGOU'] !== null ? Autolinker.link(String(feature.properties['CODIGOU'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FEC_DENU'] !== null ? Autolinker.link(String(feature.properties['FEC_DENU'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CONCESION'] !== null ? Autolinker.link(String(feature.properties['CONCESION'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TIT_CONCES'] !== null ? Autolinker.link(String(feature.properties['TIT_CONCES'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['D_ESTADO'] !== null ? Autolinker.link(String(feature.properties['D_ESTADO'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CARTA'] !== null ? Autolinker.link(String(feature.properties['CARTA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ZONA'] !== null ? Autolinker.link(String(feature.properties['ZONA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SUSTANCIA'] !== null ? Autolinker.link(String(feature.properties['SUSTANCIA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DEPA'] !== null ? Autolinker.link(String(feature.properties['DEPA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PROVI'] !== null ? Autolinker.link(String(feature.properties['PROVI'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DISTRI'] !== null ? Autolinker.link(String(feature.properties['DISTRI'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['HASDATUM'] !== null ? Autolinker.link(String(feature.properties['HASDATUM'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PPM'] !== null ? Autolinker.link(String(feature.properties['PPM'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        var pattern_sanbenito_PB_0_0_0 = new L.StripePattern({
+            weight: 0.3,
+            spaceWeight: 2.0,
+            color: '#e567ce',
+            opacity: 1.0,
+            spaceOpacity: 0,
+            angle: 315
+        });
+        pattern_sanbenito_PB_0_0_0.addTo(map);
+        function style_sanbenito_PB_0_0() {
+            return {
+                pane: 'pane_sanbenito_PB_0',
+                stroke: false,
+                fillOpacity: 1,
+                fillPattern: pattern_sanbenito_PB_0_0_0
+            }
+        }
+        function style_sanbenito_PB_0_1() {
+            return {
+                pane: 'pane_sanbenito_PB_0',
+                opacity: 1,
+                color: 'rgba(229,103,206,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_sanbenito_PB_0');
+        map.getPane('pane_sanbenito_PB_0').style.zIndex = 400;
+        map.getPane('pane_sanbenito_PB_0').style['mix-blend-mode'] = 'normal';
+        var layer_sanbenito_PB_0 = new L.geoJson.multiStyle(json_sanbenito_PB_0, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_sanbenito_PB_0',
+            onEachFeature: pop_sanbenito_PB_0,
+            styles: [style_sanbenito_PB_0_0,style_sanbenito_PB_0_1,]
+        });
+        bounds_group.addLayer(layer_sanbenito_PB_0);
+        map.addLayer(layer_sanbenito_PB_0);
+        function pop_concesion_tortuga_29_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CODIGOU'] !== null ? Autolinker.link(String(feature.properties['CODIGOU'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FEC_DENU'] !== null ? Autolinker.link(String(feature.properties['FEC_DENU'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CONCESION'] !== null ? Autolinker.link(String(feature.properties['CONCESION'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TIT_CONCES'] !== null ? Autolinker.link(String(feature.properties['TIT_CONCES'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['D_ESTADO'] !== null ? Autolinker.link(String(feature.properties['D_ESTADO'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CARTA'] !== null ? Autolinker.link(String(feature.properties['CARTA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ZONA'] !== null ? Autolinker.link(String(feature.properties['ZONA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SUSTANCIA'] !== null ? Autolinker.link(String(feature.properties['SUSTANCIA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DEPA'] !== null ? Autolinker.link(String(feature.properties['DEPA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PROVI'] !== null ? Autolinker.link(String(feature.properties['PROVI'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DISTRI'] !== null ? Autolinker.link(String(feature.properties['DISTRI'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['HASDATUM'] !== null ? Autolinker.link(String(feature.properties['HASDATUM'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PPM'] !== null ? Autolinker.link(String(feature.properties['PPM'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        var pattern_concesion_tortuga_29_1_0_0 = new L.StripePattern({
+            weight: 0.3,
+            spaceWeight: 2.0,
+            color: '#4daf4a',
+            opacity: 1.0,
+            spaceOpacity: 0,
+            angle: 315
+        });
+        pattern_concesion_tortuga_29_1_0_0.addTo(map);
+        function style_concesion_tortuga_29_1_0() {
+            return {
+                pane: 'pane_concesion_tortuga_29_1',
+                stroke: false,
+                fillOpacity: 1,
+                fillPattern: pattern_concesion_tortuga_29_1_0_0
+            }
+        }
+        function style_concesion_tortuga_29_1_1() {
+            return {
+                pane: 'pane_concesion_tortuga_29_1',
+                opacity: 1,
+                color: 'rgba(77,175,74,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_concesion_tortuga_29_1');
+        map.getPane('pane_concesion_tortuga_29_1').style.zIndex = 401;
+        map.getPane('pane_concesion_tortuga_29_1').style['mix-blend-mode'] = 'normal';
+        var layer_concesion_tortuga_29_1 = new L.geoJson.multiStyle(json_concesion_tortuga_29_1, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_concesion_tortuga_29_1',
+            onEachFeature: pop_concesion_tortuga_29_1,
+            styles: [style_concesion_tortuga_29_1_0,style_concesion_tortuga_29_1_1,]
+        });
+        bounds_group.addLayer(layer_concesion_tortuga_29_1);
+        map.addLayer(layer_concesion_tortuga_29_1);
+        function pop_Bocamina_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Bocamina_2_0() {
+            return {
+                pane: 'pane_Bocamina_2',
+                radius: 6.4,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,11,165,1.0)',
+            }
+        }
+        function style_Bocamina_2_1() {
+            return {
+                pane: 'pane_Bocamina_2',
+                radius: 1.4,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,0,0,1.0)',
+            }
+        }
+        map.createPane('pane_Bocamina_2');
+        map.getPane('pane_Bocamina_2').style.zIndex = 402;
+        map.getPane('pane_Bocamina_2').style['mix-blend-mode'] = 'normal';
+        var layer_Bocamina_2 = new L.geoJson.multiStyle(json_Bocamina_2, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Bocamina_2',
+            onEachFeature: pop_Bocamina_2,
+            pointToLayers: [function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Bocamina_2_0(feature));
+            },function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Bocamina_2_1(feature));
+            },
+        ]});
+        bounds_group.addLayer(layer_Bocamina_2);
+        map.addLayer(layer_Bocamina_2);
+        function pop_concesion_evita5_3(feature, layer) {
+        }
+
+        var pattern_concesion_evita5_3_0_0 = new L.StripePattern({
+            weight: 0.3,
+            spaceWeight: 2.0,
+            color: '#377eb8',
+            opacity: 1.0,
+            spaceOpacity: 0,
+            angle: 225
+        });
+        pattern_concesion_evita5_3_0_0.addTo(map);
+        function style_concesion_evita5_3_0() {
+            return {
+                pane: 'pane_concesion_evita5_3',
+                stroke: false,
+                fillOpacity: 1,
+                fillPattern: pattern_concesion_evita5_3_0_0
+            }
+        }
+        function style_concesion_evita5_3_1() {
+            return {
+                pane: 'pane_concesion_evita5_3',
+                opacity: 1,
+                color: 'rgba(55,126,184,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_concesion_evita5_3');
+        map.getPane('pane_concesion_evita5_3').style.zIndex = 403;
+        map.getPane('pane_concesion_evita5_3').style['mix-blend-mode'] = 'normal';
+        var layer_concesion_evita5_3 = new L.geoJson.multiStyle(json_concesion_evita5_3, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_concesion_evita5_3',
+            onEachFeature: pop_concesion_evita5_3,
+            styles: [style_concesion_evita5_3_0,style_concesion_evita5_3_1,]
+        });
+        bounds_group.addLayer(layer_concesion_evita5_3);
+        map.addLayer(layer_concesion_evita5_3);
+        function pop_AREA2_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Id'] !== null ? Autolinker.link(String(feature.properties['Id'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_AREA2_4_0() {
+            return {
+                pane: 'pane_AREA2_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,170,33,1.0)',
+            }
+        }
+        map.createPane('pane_AREA2_4');
+        map.getPane('pane_AREA2_4').style.zIndex = 404;
+        map.getPane('pane_AREA2_4').style['mix-blend-mode'] = 'normal';
+        var layer_AREA2_4 = new L.geoJson(json_AREA2_4, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_AREA2_4',
+            onEachFeature: pop_AREA2_4,
+            style: style_AREA2_4_0,
+        });
+        bounds_group.addLayer(layer_AREA2_4);
+        map.addLayer(layer_AREA2_4);
+        function pop_AREA1_5(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Id'] !== null ? Autolinker.link(String(feature.properties['Id'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_AREA1_5_0() {
+            return {
+                pane: 'pane_AREA1_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,185,63,1.0)',
+            }
+        }
+        map.createPane('pane_AREA1_5');
+        map.getPane('pane_AREA1_5').style.zIndex = 405;
+        map.getPane('pane_AREA1_5').style['mix-blend-mode'] = 'normal';
+        var layer_AREA1_5 = new L.geoJson(json_AREA1_5, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_AREA1_5',
+            onEachFeature: pop_AREA1_5,
+            style: style_AREA1_5_0,
+        });
+        bounds_group.addLayer(layer_AREA1_5);
+        map.addLayer(layer_AREA1_5);
+        function pop_LABORESECIST_6(feature, layer) {
+        }
+
+        function style_LABORESECIST_6_0() {
+            return {
+                pane: 'pane_LABORESECIST_6',
+                opacity: 1,
+                color: 'rgba(183,72,75,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_LABORESECIST_6');
+        map.getPane('pane_LABORESECIST_6').style.zIndex = 406;
+        map.getPane('pane_LABORESECIST_6').style['mix-blend-mode'] = 'normal';
+        var layer_LABORESECIST_6 = new L.geoJson(json_LABORESECIST_6, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_LABORESECIST_6',
+            onEachFeature: pop_LABORESECIST_6,
+            style: style_LABORESECIST_6_0,
+        });
+        bounds_group.addLayer(layer_LABORESECIST_6);
+        map.addLayer(layer_LABORESECIST_6);
+        var osmGeocoder = new L.Control.OSMGeocoder({
+            collapsed: false,
+            position: 'topright',
+            text: 'Search',
+        });
+        osmGeocoder.addTo(map);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/LABORESECIST_6.png" /> LABORES ECIST': layer_LABORESECIST_6,'<img src="legend/AREA1_5.png" /> AREA1': layer_AREA1_5,'<img src="legend/AREA2_4.png" /> AREA2': layer_AREA2_4,'<img src="legend/concesion_evita5_3.png" /> concesion_evita5': layer_concesion_evita5_3,'<img src="legend/Bocamina_2.png" /> Bocamina': layer_Bocamina_2,'<img src="legend/concesion_tortuga_29_1.png" /> concesion_tortuga_29': layer_concesion_tortuga_29_1,'<img src="legend/sanbenito_PB_0.png" /> sanbenito_PB': layer_sanbenito_PB_0,}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
